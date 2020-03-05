@@ -52,7 +52,21 @@ public class workoutActivity extends AppCompatActivity {
                 moveToMainActivity();
             }
         });
+
+        firstBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                goToExercise();
+            }
+        });
+
     }
+
+    private void goToExercise(){
+        Intent goToEx = new Intent(workoutActivity.this, ExerciseActivity.class);
+        startActivity(goToEx);;
+    }
+
 
     private void legWorkouts(){
         //sets the title
