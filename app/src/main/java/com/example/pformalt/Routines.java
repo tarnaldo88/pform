@@ -185,6 +185,7 @@ public class Routines extends AppCompatActivity {
         shoulder.setVisibility(View.GONE);
         backPart.setVisibility(View.GONE);
         BtnRotateBody.setVisibility(View.VISIBLE);
+        rotateToFront.setVisibility(View.GONE);
         bg.setImageDrawable(ContextCompat.getDrawable(Routines.this, R.drawable.bg_routines));
     }
 }

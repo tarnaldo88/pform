@@ -59,12 +59,35 @@ public class workoutActivity extends AppCompatActivity {
                 goToExercise();
             }
         });
-
+        secondBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                goToExercise();
+            }
+        });
+        thirdBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                goToExercise();
+            }
+        });
+        fourthBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                goToExercise();
+            }
+        });
+        fifthBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                goToExercise();
+            }
+        });
     }
 
     private void goToExercise(){
         Intent goToEx = new Intent(workoutActivity.this, ExerciseActivity.class);
-        startActivity(goToEx);;
+        startActivity(goToEx);
     }
 
 

@@ -92,7 +92,6 @@ public class BodyGroups extends AppCompatActivity {
     private void chestToWorkout(){
         Intent goToWorkout = new Intent(BodyGroups.this, workoutActivity.class);
         goToWorkout.putExtra("value", "chest");
-
         startActivity(goToWorkout);
     }
 
