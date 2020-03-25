@@ -13,7 +13,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-public class ExerciseActivity extends YouTubeBaseActivity { //AppCompatActivity,
+public class ExerciseActivity extends YouTubeBaseActivity { //I removed the extends AppCompatActivity idk if it was needed but I couldn't extend two at once
 
         private ImageButton backToBodyGroups;
         Button button;
@@ -32,12 +32,11 @@ public class ExerciseActivity extends YouTubeBaseActivity { //AppCompatActivity,
                 @Override
                 public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                     youTubePlayer.loadVideo( "lXwm62SiLQ8"); //youtube video link
-
                 }
 
                 @Override
                 public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
+                    //if it fails to find video have it do something
                 }
             };
 
@@ -46,7 +45,7 @@ public class ExerciseActivity extends YouTubeBaseActivity { //AppCompatActivity,
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    youtubePlayerView.initialize("AIzaSyC8GktotpkFtqSWHVUGQjXBg4UVHD52qf0", onInitializedListener); //API key
+                    youtubePlayerView.initialize("AIzaSyC8GktotpkFtqSWHVUGQjXBg4UVHD52qf0", onInitializedListener); //API key don't change this
                 }
             });
             //listener to activate button upon click by user, selects chest
