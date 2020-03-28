@@ -10,10 +10,14 @@ import android.widget.ImageButton;
 public class MainActivity extends AppCompatActivity {
     private ImageButton BtnMoveBodyG, BtnMoveRoutine;
 
+    DataBaseSetup exerciseDb; //database stuff don't touch
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        exerciseDb = new DataBaseSetup(this); //database stuff don't touch
 
         BtnMoveBodyG = findViewById(R.id.ExercisesBtn);
         BtnMoveRoutine = findViewById(R.id.routineBtn);

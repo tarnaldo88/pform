@@ -20,13 +20,17 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
         private YouTubePlayerView youtubePlayerView;
         private YouTubePlayer.OnInitializedListener onInitializedListener;
 
-        @Override
+
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_exercise);
 
             youtubePlayerView = findViewById(R.id.youtube_view);
             backToBodyGroups = findViewById(R.id.backMainActivityBtn);
+
+            //youtubePlayerView.initialize("AIzaSyC8GktotpkFtqSWHVUGQjXBg4UVHD52qf0", onCreate); //API key don't change this
+
 
             onInitializedListener = new YouTubePlayer.OnInitializedListener() {
                 @Override
