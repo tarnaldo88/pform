@@ -152,7 +152,7 @@ public class Routines extends AppCompatActivity {
     //function to move back to the main activity from the body groups page
     private void moveToMainActivity(){
         Intent goToMainActivity = new Intent(Routines.this, MainActivity.class);
-        startActivity(goToMainActivity);;
+        startActivity(goToMainActivity);
     }
 
     private void clearAll(ArrayList x){

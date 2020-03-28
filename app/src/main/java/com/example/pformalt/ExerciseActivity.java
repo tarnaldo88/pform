@@ -16,7 +16,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 public class ExerciseActivity extends YouTubeBaseActivity { //I removed the extends AppCompatActivity idk if it was needed but I couldn't extend two at once
 
         private ImageButton backToBodyGroups;
-        Button button;
+        private ImageButton playBtn;
         private YouTubePlayerView youtubePlayerView;
         private YouTubePlayer.OnInitializedListener onInitializedListener;
 
@@ -44,9 +44,9 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
                 }
             };
 
-            button = findViewById(R.id.button);
+        playBtn = findViewById(R.id.playButton);
 
-            button.setOnClickListener(new View.OnClickListener() {
+        playBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     youtubePlayerView.initialize("AIzaSyC8GktotpkFtqSWHVUGQjXBg4UVHD52qf0", onInitializedListener); //API key don't change this
