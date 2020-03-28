@@ -13,37 +13,46 @@
         android:layout_height="47dp"
         android:layout_marginEnd="316dp"
         android:layout_marginRight="316dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/back_btn"
+        android:contentDescription="TODO"
         android:scaleType="centerCrop"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/back_btn_enlarged" />
+        app:srcCompat="@drawable/back_btn_enlarged"
+        tools:srcCompat="@drawable/back_btn"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/altbg"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.791"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/altbg" />
+        app:srcCompat="@drawable/altbg"
+        tools:srcCompat="@drawable/altbg"
+        tools:visibility="visible" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginBottom="341dp"
+        android:layout_marginBottom="340dp"
         android:text="Play"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -56,7 +65,9 @@
         android:layout_marginTop="1dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
