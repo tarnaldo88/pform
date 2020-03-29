@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -19,12 +21,20 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
         private ImageButton playBtn;
         private YouTubePlayerView youtubePlayerView;
         private YouTubePlayer.OnInitializedListener onInitializedListener;
+        TextView textView;
 
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_exercise);
+
+            textView = (TextView) findViewById(R.id.text);
+
+            String description = "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.[1]";
+
+            textView.setText(description);
+            textView.setMovementMethod(new ScrollingMovementMethod());
 
             youtubePlayerView = findViewById(R.id.youtube_view);
             backToBodyGroups = findViewById(R.id.backMainActivityBtn);
