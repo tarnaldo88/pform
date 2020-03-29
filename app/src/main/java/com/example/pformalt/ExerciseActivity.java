@@ -29,9 +29,26 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_exercise);
 
-            textView = (TextView) findViewById(R.id.text);
+            textView = (TextView) findViewById(R.id.description);
 
-            String description = "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.[1]";
+            /*
+            * IGNORE THE WEIRD TEXT IT WAS JUST TO TEST THE SCROLLING FEATURE
+            */
+            String description = "  Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\n" +
+                    "Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.\nTHIS IS THE LAST THING";
 
             textView.setText(description);
             textView.setMovementMethod(new ScrollingMovementMethod());

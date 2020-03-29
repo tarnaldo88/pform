@@ -15,7 +15,6 @@ public class DataBaseSetup extends SQLiteOpenHelper {
     public static final String COL_4 = "LINK";
 
 
-
     public DataBaseSetup(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
         SQLiteDatabase db = this.getWritableDatabase();
