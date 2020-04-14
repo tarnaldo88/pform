@@ -18,6 +18,7 @@ public class Routines extends AppCompatActivity {
     private ImageButton BtnRotateBody;
     private ImageButton rotateToFront;
     private ImageButton clearBtn;
+    private ImageButton generate;
     private Button chest;
     private Button legs;
     private Button arms;
@@ -46,6 +47,7 @@ public class Routines extends AppCompatActivity {
         arms = findViewById(R.id.armBtn);
         shoulder = findViewById(R.id.shoulderBtn);
         backPart = findViewById(R.id.backBodyPt);
+        generate = findViewById(R.id.generateBtn);
 
         //Image views that pop up when user selects a body part
         chestSelected =(ImageView) findViewById(R.id.chestSelected);
@@ -55,6 +57,17 @@ public class Routines extends AppCompatActivity {
         shoulderSelected =(ImageView) findViewById(R.id.shoulderSelected);
 
         selectedParts = new ArrayList<String>();
+
+        //listener to activate button upon click by user, selects chest
+        generate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                //button activity goes in here, check that user has not already selected area
+                if(!selectedParts.isEmpty()) {
+                    goToGenerator();
+                }
+            }
+        });
 
         //listener to activate button upon click by user, selects chest
         chest.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +167,13 @@ public class Routines extends AppCompatActivity {
         Intent goToMainActivity = new Intent(Routines.this, MainActivity.class);
         startActivity(goToMainActivity);
     }
+
+    private void goToGenerator(){
+        Intent goToGen = new Intent(Routines.this, Generator.class);
+        goToGen.putStringArrayListExtra("selected", selectedParts);
+        startActivity(goToGen);
+    }
+
 
     private void clearAll(ArrayList x){
         x.clear();
