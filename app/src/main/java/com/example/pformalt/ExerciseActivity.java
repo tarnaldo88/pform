@@ -47,9 +47,13 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
 
             //final String YTLink = searchYTL(workoutSamples, 0);
             String description = workoutSamples.get(0).getDescription();
-            if (selectedParts[0].compareTo("arms") == 0 && selectedParts[1].compareTo("first") == 0) {
+            /*if (selectedParts[0].compareTo("arms") == 0 && selectedParts[1].compareTo("first") == 0) {
                 description = "we picked the first one in arms";
-            }
+            }*/
+            int id = whichID(selectedParts);
+
+            description = "this is the id we got " + id;
+
 
             textView.setText(description);
             textView.setMovementMethod(new ScrollingMovementMethod());
@@ -86,6 +90,65 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
                 }
             });
         }
+
+    private int whichID(String[] selectedParts) {
+        if (selectedParts[0].compareTo("arms") == 0) {
+            if (selectedParts[1].compareTo("first") == 0){
+                return 1;
+            } else if (selectedParts[1].compareTo("second") == 0){
+                return 2;
+            } else if (selectedParts[1].compareTo("third") == 0) {
+                return 3;
+            }
+        }
+        if (selectedParts[0].compareTo("legs") == 0) {
+            if (selectedParts[1].compareTo("first") == 0){
+                return 4;
+            } else if (selectedParts[1].compareTo("second") == 0){
+                return 5;
+            } else if (selectedParts[1].compareTo("third") == 0) {
+                return 6;
+            } else if (selectedParts[1].compareTo("fourth") == 0){
+                return 7;
+            } else if (selectedParts[1].compareTo("fifth") == 0) {
+                return 8;
+            }
+        }
+        if (selectedParts[0].compareTo("back") == 0) {
+            if (selectedParts[1].compareTo("first") == 0){
+                return 9;
+            } else if (selectedParts[1].compareTo("second") == 0){
+                return 10;
+            } else if (selectedParts[1].compareTo("third") == 0) {
+                return 11;
+            }
+        }
+        if (selectedParts[0].compareTo("chest") == 0) {
+            if (selectedParts[1].compareTo("first") == 0) {
+                return 12;
+            } else if (selectedParts[1].compareTo("second") == 0) {
+                return 13;
+            } else if (selectedParts[1].compareTo("third") == 0) {
+                return 14;
+            } else if (selectedParts[1].compareTo("fourth") == 0) {
+                return 15;
+            } else if (selectedParts[1].compareTo("fifth") == 0) {
+                return 16;
+            }
+        }
+        if (selectedParts[0].compareTo("shoulders") == 0) {
+            if (selectedParts[1].compareTo("first") == 0){
+                return 17;
+            } else if (selectedParts[1].compareTo("second") == 0){
+                return 18;
+            } else if (selectedParts[1].compareTo("third") == 0) {
+                return 19;
+            } else if (selectedParts[1].compareTo("fourth") == 0){
+                return 20;
+            }
+        }
+        return -1;//error
+    }
 
     private void moveToBody(){
         Intent goToBodyActivity = new Intent(ExerciseActivity.this, BodyGroups.class);
