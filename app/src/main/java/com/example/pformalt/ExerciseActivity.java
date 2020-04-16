@@ -33,6 +33,8 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
         TextView textView;
 
         private String[] selectedParts = {"", ""};
+        int id = -1;
+
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -45,17 +47,18 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
 
             selectedParts = getIntent().getStringArrayExtra("workoutSelected"); // {arms, first}
 
-            //final String YTLink = searchYTL(workoutSamples, 0);
-            String description = workoutSamples.get(0).getDescription();
-            /*if (selectedParts[0].compareTo("arms") == 0 && selectedParts[1].compareTo("first") == 0) {
-                description = "we picked the first one in arms";
-            }*/
-            int id = whichID(selectedParts);
+            String description = "";
+
+            id = whichID(selectedParts);
+
 
             description = "this is the id we got " + id;
+            description = workoutSamples.get(id - 1).getDescription();
 
 
-            textView.setText(description);
+
+
+        textView.setText(description);
             textView.setMovementMethod(new ScrollingMovementMethod());
 
             youtubePlayerView = findViewById(R.id.youtube_view);
@@ -67,7 +70,7 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
             onInitializedListener = new YouTubePlayer.OnInitializedListener() {
                 @Override
                 public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                    youTubePlayer.loadVideo(workoutSamples.get(0).getYTLink()); //youtube video link lXwm62SiLQ8 /searchYTL(workoutSamples, 0)
+                    youTubePlayer.loadVideo(workoutSamples.get(id - 1).getYTLink()); //youtube video link lXwm62SiLQ8 /searchYTL(workoutSamples, 0)
                 }
 
                 @Override
