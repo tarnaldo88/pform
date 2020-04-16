@@ -19,6 +19,11 @@ public class workoutActivity extends AppCompatActivity {
     private ImageButton fourthBtn;
     private ImageButton fifthBtn;
 
+    //String selected = getIntent().getStringExtra("value");
+
+    String[] workoutSelected = {"", ""};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,18 +36,20 @@ public class workoutActivity extends AppCompatActivity {
         fourthBtn = findViewById(R.id.fourthWork);
         fifthBtn = findViewById(R.id.fifthWork);
 
-        String select = getIntent().getStringExtra("value");
+        String selected = getIntent().getStringExtra("value");
+
+        workoutSelected[0] = selected;
 
         //if statements determining which body group was selected
-        if (select.compareTo("legs") == 0){
+        if (selected.compareTo("legs") == 0){
             legWorkouts();
-        } else if(select.compareTo("arms") == 0){
+        } else if(selected.compareTo("arms") == 0){
             armWorkout();
-        } else if (select.compareTo("chest") == 0) {
+        } else if (selected.compareTo("chest") == 0) {
             chestWorkout();
-        } else if (select.compareTo("shoulders") == 0){
+        } else if (selected.compareTo("shoulders") == 0){
             shoulderWorkout();
-        } else if (select.compareTo("back") == 0){
+        } else if (selected.compareTo("back") == 0){
             backWorkout();
         }
         //listener to activate button upon click by user, goes back to main page
@@ -56,30 +63,35 @@ public class workoutActivity extends AppCompatActivity {
         firstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                workoutSelected[1] = "first";
                 goToExercise();
             }
         });
         secondBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                workoutSelected[1] = "second";
                 goToExercise();
             }
         });
         thirdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                workoutSelected[1] = "third";
                 goToExercise();
             }
         });
         fourthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                workoutSelected[1] = "fourth";
                 goToExercise();
             }
         });
         fifthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                workoutSelected[1] = "fifth";
                 goToExercise();
             }
         });
@@ -87,6 +99,7 @@ public class workoutActivity extends AppCompatActivity {
 
     private void goToExercise(){
         Intent goToEx = new Intent(workoutActivity.this, ExerciseActivity.class);
+        goToEx.putExtra("workoutSelected", workoutSelected);
         startActivity(goToEx);
     }
 
