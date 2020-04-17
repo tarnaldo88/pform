@@ -41,6 +41,8 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_exercise);
 
+        System.out.println("\n\n\n\n IT GOT TO HERER \n\n\n\n");
+
             textView = (TextView) findViewById(R.id.description);
 
             readWorkoutData();
@@ -97,57 +99,57 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
     private int whichID(String[] selectedParts) {
         if (selectedParts[0].compareTo("arms") == 0) {
             if (selectedParts[1].compareTo("first") == 0){
-                return 1;
+                return 1; //curl
             } else if (selectedParts[1].compareTo("second") == 0){
-                return 2;
+                return 2; //hammer curl
             } else if (selectedParts[1].compareTo("third") == 0) {
-                return 3;
+                return 3; //skull crusher
             }
         }
         if (selectedParts[0].compareTo("legs") == 0) {
             if (selectedParts[1].compareTo("first") == 0){
-                return 4;
+                return 4; //squats
             } else if (selectedParts[1].compareTo("second") == 0){
-                return 5;
+                return 5; //sumo squats
             } else if (selectedParts[1].compareTo("third") == 0) {
-                return 6;
+                return 6; //lunge
             } else if (selectedParts[1].compareTo("fourth") == 0){
-                return 7;
+                return 7; //reverse lunge
             } else if (selectedParts[1].compareTo("fifth") == 0) {
-                return 8;
+                return 8; //curtsy lunge
             }
         }
         if (selectedParts[0].compareTo("back") == 0) {
             if (selectedParts[1].compareTo("first") == 0){
-                return 9;
+                return 9; //deadlift
             } else if (selectedParts[1].compareTo("second") == 0){
-                return 10;
+                return 10; //reverse fly
             } else if (selectedParts[1].compareTo("third") == 0) {
-                return 11;
+                return 11; //reverse row
             }
         }
         if (selectedParts[0].compareTo("chest") == 0) {
             if (selectedParts[1].compareTo("first") == 0) {
-                return 12;
+                return 12; //chest press
             } else if (selectedParts[1].compareTo("second") == 0) {
-                return 13;
+                return 13; //decline chest press
             } else if (selectedParts[1].compareTo("third") == 0) {
-                return 14;
+                return 14; //incline chest press
             } else if (selectedParts[1].compareTo("fourth") == 0) {
-                return 15;
+                return 15; //fly
             } else if (selectedParts[1].compareTo("fifth") == 0) {
-                return 16;
+                return 16; //incline fly
             }
         }
         if (selectedParts[0].compareTo("shoulders") == 0) {
             if (selectedParts[1].compareTo("first") == 0){
-                return 17;
+                return 17; //reverse fly
             } else if (selectedParts[1].compareTo("second") == 0){
-                return 18;
+                return 18; //alt front raise
             } else if (selectedParts[1].compareTo("third") == 0) {
-                return 19;
+                return 19; //shoulders press
             } else if (selectedParts[1].compareTo("fourth") == 0){
-                return 20;
+                return 20; //upright row
             }
         }
         return -1;//error

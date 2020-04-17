@@ -21,11 +21,13 @@ public class Generator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generator);
-        intent = getIntent();
 
         BtnMoveBack = findViewById(R.id.backMainActivityBtn);
         chestView = findViewById(R.id.chest);
-        selectedParts = intent.getStringArrayListExtra("selected");
+        System.out.println("\n\n\n\n IT GOT TO HERER \n\n\n\n");
+
+        selectedParts = getIntent().getStringArrayListExtra("selected");
+        System.out.println("\n\n\n\n IT GOT TO HERER \n\n\n\n");
 
         BtnMoveBack.setOnClickListener(new View.OnClickListener() {
             @Override

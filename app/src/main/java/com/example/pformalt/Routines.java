@@ -30,7 +30,7 @@ public class Routines extends AppCompatActivity {
     private ImageView backSelect;
     private ImageView shoulderSelected;
     private ImageView bg;
-    private ArrayList<String> selectedParts;
+    private ArrayList<String> selectedParts = new ArrayList<String>();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class Routines extends AppCompatActivity {
         backSelect =(ImageView) findViewById(R.id.backSelected);
         shoulderSelected =(ImageView) findViewById(R.id.shoulderSelected);
 
-        selectedParts = new ArrayList<String>();
+        //selectedParts = new ArrayList<String>();
 
         //listener to activate button upon click by user, selects chest
         generate.setOnClickListener(new View.OnClickListener() {
