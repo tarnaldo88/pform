@@ -24,10 +24,10 @@ public class Generator extends AppCompatActivity {
 
         BtnMoveBack = findViewById(R.id.backMainActivityBtn);
         chestView = findViewById(R.id.chest);
-        System.out.println("\n\n\n\n IT GOT TO HERER \n\n\n\n");
+       // System.out.println("\n\n\n\n IT GOT TO HERER \n\n\n\n");
 
         selectedParts = getIntent().getStringArrayListExtra("selected");
-        System.out.println("\n\n\n\n IT GOT TO HERER \n\n\n\n");
+       // System.out.println("\n\n\n\n IT GOT TO HERER \n\n\n\n");
 
         BtnMoveBack.setOnClickListener(new View.OnClickListener() {
             @Override

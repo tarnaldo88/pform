@@ -171,7 +171,9 @@ public class Routines extends AppCompatActivity {
     private void goToGenerator(){
         Intent goToGen = new Intent(Routines.this, Generator.class);
         goToGen.putStringArrayListExtra("selected", selectedParts);
-        startActivity(goToGen);
+        if(!selectedParts.isEmpty()) {
+            startActivity(goToGen);
+        }
     }
 
 
