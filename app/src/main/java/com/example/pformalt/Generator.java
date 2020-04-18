@@ -97,14 +97,14 @@ public class Generator extends AppCompatActivity {
         ArrayList<String> namesGenerated = new ArrayList<>();
         Random rand = new Random();
         int arms = 0, legs = 4, back = 9, chest = 12, shoulders = 17;
-        for (int i = 0; i < selectedParts.size() - 1; i++){
+        for (int i = 0; i < selectedParts.size(); i++){
             if (selectedParts.get(i).compareTo("arms") == 0) {
                 generated[0] = rand.nextInt(((legs-1) - arms) + 1) + arms;
                 namesGenerated.add(workoutSamples.get(generated[0] - 1).getWName());
             }
             else if (selectedParts.get(i).compareTo("legs") == 0) {
                 generated[1] = rand.nextInt(((back-1) - legs) + 1) + legs;
-                namesGenerated.add(workoutSamples.get(generated[1] - 1).getWName());
+                namesGenerated.add(workoutSamples.get(generated[1] - 1).getWName()); //generated -1
             }
             else if (selectedParts.get(i).compareTo("back") == 0) {
                 generated[2] = rand.nextInt(((chest-1) - back) + 1) + back;
@@ -114,7 +114,7 @@ public class Generator extends AppCompatActivity {
                 generated[3] = rand.nextInt(((shoulders-1) - chest) + 1) + chest;
                 namesGenerated.add(workoutSamples.get(generated[3] - 1).getWName());
             }
-            else if (selectedParts.get(i).compareTo("shoulders") == 0) {
+            else if (selectedParts.get(i).compareTo("shoulder") == 0) {
                 generated[4] = rand.nextInt((20 - shoulders) + 1) + shoulders;
                 namesGenerated.add(workoutSamples.get(generated[4] - 1).getWName());
             }
