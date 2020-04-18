@@ -40,12 +40,20 @@ public class Generator extends AppCompatActivity {
         for (int i = 0; i < printableNames.size(); i++){
             selectedArray[i] = printableNames.get(i);
         }
-        for (int i = 0; i < 5; i++) {
+        /*for (int i = 0; i < 5; i++) {
             Log.d("myTag", "\n" + selectedArray[i]);
-        }
+        }*/
 
         listview = (ListView) findViewById(R.id.listview);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,selectedArray); //used to be printable names
+        //ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,selectedArray); //used to be printable names
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                printableNames );
+
+        listview.setAdapter(arrayAdapter);
+
 
         BtnMoveBack = findViewById(R.id.backMainActivityBtn);
         chestView = findViewById(R.id.chest);
