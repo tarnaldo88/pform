@@ -45,4 +45,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/chest" />
 
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="wrap_content"
+        android:layout_height="532dp"
+        android:background="#403F3F"
+        android:cacheColorHint="@android:color/background_light"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background"
+        tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

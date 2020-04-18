@@ -41,8 +41,6 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_exercise);
 
-        System.out.println("\n\n\n\n IT GOT TO HERER \n\n\n\n");
-
             textView = (TextView) findViewById(R.id.description);
 
             readWorkoutData();
@@ -106,7 +104,7 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
                 return 3; //skull crusher
             }
         }
-        if (selectedParts[0].compareTo("legs") == 0) {
+        else if (selectedParts[0].compareTo("legs") == 0) {
             if (selectedParts[1].compareTo("first") == 0){
                 return 4; //squats
             } else if (selectedParts[1].compareTo("second") == 0){
@@ -119,7 +117,7 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
                 return 8; //curtsy lunge
             }
         }
-        if (selectedParts[0].compareTo("back") == 0) {
+        else if (selectedParts[0].compareTo("back") == 0) {
             if (selectedParts[1].compareTo("first") == 0){
                 return 9; //deadlift
             } else if (selectedParts[1].compareTo("second") == 0){
@@ -128,7 +126,7 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
                 return 11; //reverse row
             }
         }
-        if (selectedParts[0].compareTo("chest") == 0) {
+        else if (selectedParts[0].compareTo("chest") == 0) {
             if (selectedParts[1].compareTo("first") == 0) {
                 return 12; //chest press
             } else if (selectedParts[1].compareTo("second") == 0) {
@@ -141,7 +139,7 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
                 return 16; //incline fly
             }
         }
-        if (selectedParts[0].compareTo("shoulders") == 0) {
+        else if (selectedParts[0].compareTo("shoulders") == 0) {
             if (selectedParts[1].compareTo("first") == 0){
                 return 17; //reverse fly
             } else if (selectedParts[1].compareTo("second") == 0){
