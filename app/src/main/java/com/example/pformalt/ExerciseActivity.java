@@ -45,14 +45,13 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
 
             readWorkoutData();
 
-            selectedParts = getIntent().getStringArrayExtra("workoutSelected"); // {arms, first}
+            selectedParts = getIntent().getStringArrayExtra("workoutSelected"); // for example {arms, first}
 
-            String description = "";
+            String description = ""; //initializing the description
 
             id = whichID(selectedParts);
 
-
-            description = "this is the id we got " + id;
+            //pulls the description using the ID from the array list of objects of type workout
             description = workoutSamples.get(id - 1).getDescription();
 
 
@@ -64,8 +63,6 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
             youtubePlayerView = findViewById(R.id.youtube_view);
             backToBodyGroups = findViewById(R.id.backMainActivityBtn);
             playBtn = findViewById(R.id.playButton);
-
-            //youtubePlayerView.initialize("AIzaSyC8GktotpkFtqSWHVUGQjXBg4UVHD52qf0", onCreate); //API key don't change this
 
             onInitializedListener = new YouTubePlayer.OnInitializedListener() {
                 @Override
@@ -94,6 +91,11 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
             });
         }
 
+        /*
+        This is a function that sees if arms was picked and which button # was pressed
+        for example arms and first button is equal to the curl workout for arms so returns ID 1
+        which is the ID in the CSV file
+         */
     private int whichID(String[] selectedParts) {
         if (selectedParts[0].compareTo("arms") == 0) {
             if (selectedParts[1].compareTo("first") == 0){
@@ -158,6 +160,9 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
         startActivity(goToBodyActivity);
     }
 
+    /*
+    This function reads the CSV file into the workout samples arraylist of workout objects
+     */
     private List<workoutSample> workoutSamples = new ArrayList<>();
     private void readWorkoutData() {
         //workoutSample sample;

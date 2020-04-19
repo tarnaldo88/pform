@@ -27,7 +27,6 @@ public class Generator extends AppCompatActivity {
     private Intent intent;
     private ArrayList<String> selectedParts;
     private ListView listview;
-    private String[] selectedArray = {"", "", "", "", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,25 +34,17 @@ public class Generator extends AppCompatActivity {
         setContentView(R.layout.activity_generator);
         selectedParts = getIntent().getStringArrayListExtra("selected");
         readWorkoutData();
-        ArrayList<String> printableNames = whichID(selectedParts);
-
-        for (int i = 0; i < printableNames.size(); i++){
-            selectedArray[i] = printableNames.get(i);
-        }
-        /*for (int i = 0; i < 5; i++) {
-            Log.d("myTag", "\n" + selectedArray[i]);
-        }*/
+        ArrayList<String> printableNames = whichID(selectedParts); //saving the random generated list into printableNames array list
 
         listview = (ListView) findViewById(R.id.listview);
-        //ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,selectedArray); //used to be printable names
 
+        //giving context for the array adapter
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
                 printableNames );
 
-        listview.setAdapter(arrayAdapter);
-
+        listview.setAdapter(arrayAdapter); //uses the array adapter to display the list that was generated
 
         BtnMoveBack = findViewById(R.id.backMainActivityBtn);
         chestView = findViewById(R.id.chest);
@@ -64,12 +55,11 @@ public class Generator extends AppCompatActivity {
                 moveToMainActivity();
             }
         });
-
-        /*if(!selectedParts.isEmpty() && selectedParts.contains("chest")){
-            chestView.setVisibility(View.VISIBLE);
-        }*/
     }
 
+    /*
+    This function reads the CSV file into the workout samples arraylist of workout objects
+     */
     private List<workoutSample> workoutSamples = new ArrayList<>();
     private void readWorkoutData() {
         InputStream is = getResources().openRawResource(R.raw.workoutdata);
@@ -100,34 +90,38 @@ public class Generator extends AppCompatActivity {
         }
     }
 
+    /*
+    This function just generates a list of random workouts from whatever body part was selected
+     */
     private ArrayList<String> whichID(ArrayList<String> selectedParts) {
         int[] generated = {-1,-1,-1,-1,-1,-1};
         ArrayList<String> namesGenerated = new ArrayList<>();
         Random rand = new Random();
-        int arms = 0, legs = 4, back = 9, chest = 12, shoulders = 17;
+        int arms = 0, legs = 4, back = 9, chest = 12, shoulders = 17; //these are just the starting IDs from the CSV file for each workout
         for (int i = 0; i < selectedParts.size(); i++){
-            if (selectedParts.get(i).compareTo("arms") == 0) {
+            if (selectedParts.get(i).compareTo("arms") == 0) { //if arms selected then pick a random number within given range
                 generated[0] = rand.nextInt(((legs-1) - arms) + 1) + arms;
-                namesGenerated.add(workoutSamples.get(generated[0] - 1).getWName());
+                //then pull the workout name with that random number that was generated (the number generated is the workout ID)
+                namesGenerated.add("Arms: " + (workoutSamples.get(generated[0] - 1).getWName()));
             }
             else if (selectedParts.get(i).compareTo("legs") == 0) {
                 generated[1] = rand.nextInt(((back-1) - legs) + 1) + legs;
-                namesGenerated.add(workoutSamples.get(generated[1] - 1).getWName()); //generated -1
+                namesGenerated.add("Legs: " + (workoutSamples.get(generated[1] - 1).getWName())); //generated -1
             }
             else if (selectedParts.get(i).compareTo("back") == 0) {
                 generated[2] = rand.nextInt(((chest-1) - back) + 1) + back;
-                namesGenerated.add(workoutSamples.get(generated[2] - 1).getWName());
+                namesGenerated.add("Back: " + (workoutSamples.get(generated[2] - 1).getWName()));
             }
             else if (selectedParts.get(i).compareTo("chest") == 0) {
                 generated[3] = rand.nextInt(((shoulders-1) - chest) + 1) + chest;
-                namesGenerated.add(workoutSamples.get(generated[3] - 1).getWName());
+                namesGenerated.add("Chest: " + (workoutSamples.get(generated[3] - 1).getWName()));
             }
             else if (selectedParts.get(i).compareTo("shoulder") == 0) {
                 generated[4] = rand.nextInt((20 - shoulders) + 1) + shoulders;
-                namesGenerated.add(workoutSamples.get(generated[4] - 1).getWName());
+                namesGenerated.add("Shoulders: " + (workoutSamples.get(generated[4] - 1).getWName()));
             }
         }
-        return namesGenerated;
+        return namesGenerated; //returns the array list of the generated workouts
     }
 
     //function to move back to previous activity
