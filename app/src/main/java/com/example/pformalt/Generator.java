@@ -94,10 +94,10 @@ public class Generator extends AppCompatActivity {
     This function just generates a list of random workouts from whatever body part was selected
      */
     private ArrayList<String> whichID(ArrayList<String> selectedParts) {
-        int[] generated = {-1,-1,-1,-1,-1,-1};
+        int[] generated = {-1,-1,-1,-1,-1};
         ArrayList<String> namesGenerated = new ArrayList<>();
         Random rand = new Random();
-        int arms = 0, legs = 4, back = 9, chest = 12, shoulders = 17; //these are just the starting IDs from the CSV file for each workout
+        int arms = 1, legs = 4, back = 9, chest = 12, shoulders = 17; //these are just the starting IDs from the CSV file for each workout
         for (int i = 0; i < selectedParts.size(); i++){
             if (selectedParts.get(i).compareTo("arms") == 0) { //if arms selected then pick a random number within given range
                 generated[0] = rand.nextInt(((legs-1) - arms) + 1) + arms;
