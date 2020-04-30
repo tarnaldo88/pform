@@ -68,6 +68,7 @@ public class ExerciseActivity extends YouTubeBaseActivity { //I removed the exte
                 @Override
                 public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                     youTubePlayer.loadVideo(workoutSamples.get(id - 1).getYTLink()); //youtube video link lXwm62SiLQ8 /searchYTL(workoutSamples, 0)
+                    youTubePlayer.setShowFullscreenButton(false); //disabling full screen mode because of bug
                 }
 
                 @Override
