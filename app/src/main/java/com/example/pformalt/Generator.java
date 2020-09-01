@@ -103,6 +103,7 @@ public class Generator extends AppCompatActivity {
             if (selectedParts.get(x).compareTo("arms") == 0) { //if arms selected then pick a random number within given range
                 generated[0] = rand.nextInt(((legs-1) - arms) + 1) + arms;
                 //then pull the workout name with that random number that was generated (the number generated is the workout ID)
+                //asdfsaffdafd
                 namesGenerated.add("Arms: " + (workoutSamples.get(generated[0] - 1).getWName()));
             }
             else if (selectedParts.get(x).compareTo("legs") == 0) {
