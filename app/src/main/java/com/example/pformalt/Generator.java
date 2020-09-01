@@ -98,29 +98,38 @@ public class Generator extends AppCompatActivity {
         ArrayList<String> namesGenerated = new ArrayList<>();
         Random rand = new Random();
         int arms = 1, legs = 4, back = 9, chest = 12, shoulders = 17; //these are just the starting IDs from the CSV file for each workout
-        for (int i = 0; i < selectedParts.size(); i++){
-            if (selectedParts.get(i).compareTo("arms") == 0) { //if arms selected then pick a random number within given range
+        int x = 0;
+        for (int i = 0; i < 5; i++){
+            if (selectedParts.get(x).compareTo("arms") == 0) { //if arms selected then pick a random number within given range
                 generated[0] = rand.nextInt(((legs-1) - arms) + 1) + arms;
                 //then pull the workout name with that random number that was generated (the number generated is the workout ID)
                 namesGenerated.add("Arms: " + (workoutSamples.get(generated[0] - 1).getWName()));
             }
-            else if (selectedParts.get(i).compareTo("legs") == 0) {
+            else if (selectedParts.get(x).compareTo("legs") == 0) {
                 generated[1] = rand.nextInt(((back-1) - legs) + 1) + legs;
+                //if condition to ensure no duplicates
                 namesGenerated.add("Legs: " + (workoutSamples.get(generated[1] - 1).getWName())); //generated -1
             }
-            else if (selectedParts.get(i).compareTo("back") == 0) {
+            else if (selectedParts.get(x).compareTo("back") == 0) {
                 generated[2] = rand.nextInt(((chest-1) - back) + 1) + back;
                 namesGenerated.add("Back: " + (workoutSamples.get(generated[2] - 1).getWName()));
             }
-            else if (selectedParts.get(i).compareTo("chest") == 0) {
+            else if (selectedParts.get(x).compareTo("chest") == 0) {
                 generated[3] = rand.nextInt(((shoulders-1) - chest) + 1) + chest;
                 namesGenerated.add("Chest: " + (workoutSamples.get(generated[3] - 1).getWName()));
             }
-            else if (selectedParts.get(i).compareTo("shoulder") == 0) {
+            else if (selectedParts.get(x).compareTo("shoulder") == 0) {
                 generated[4] = rand.nextInt((20 - shoulders) + 1) + shoulders;
                 namesGenerated.add("Shoulders: " + (workoutSamples.get(generated[4] - 1).getWName()));
             }
+            if(x+1 >= selectedParts.size()){
+                x = 0;
+            } else {
+                x++;
+            }
         }
+
+
         return namesGenerated; //returns the array list of the generated workouts
     }
 
